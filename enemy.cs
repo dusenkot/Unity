@@ -24,14 +24,8 @@ public class enemy : MonoBehaviour
     void Update()
     {
         float distToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distToPlayer < agroRange)
-        {
-            ChasePlayer();    
-        }
-        else 
-        {
-            StopChasingPlayer();
-        }
+        if (distToPlayer < agroRange) ChasePlayer();
+        else StopChasingPlayer();
 
         void ChasePlayer() 
         {
@@ -40,7 +34,7 @@ public class enemy : MonoBehaviour
         }
         void StopChasingPlayer()
         {
-            //rb2d.velocity = new Vector2(0,0);//зупинка ворога коли в≥н втрачаЇ гравц€
+            rb2d.velocity = new Vector2(0,0);//зупинка ворога коли в≥н втрачаЇ гравц€
         }
     }
 }

@@ -10,13 +10,7 @@ public class scry : MonoBehaviour
     public float fastspeed;
     private Rigidbody2D rb;
     public double stamina;
-    public float hp;
 
-    [SerializeField]
-    Transform player;
-
-    [SerializeField]
-    float Rangeatack;
 
     void Start()
     {
@@ -43,43 +37,13 @@ public class scry : MonoBehaviour
                 walk = speed;
             }
         }
-        else
-        {
-            walk = speed;
-        }
-        if (stamina < 10.0)
-        {
-            stamina = stamina + 0.01;
-        }
-            
-    }
-    void Update()
-    {
-        float distToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distToPlayer < Rangeatack)
-        {
-            dead();
-        }
-       void dead()
-       {
-            if (hp > 0)
-            {
-                hp = hp - 1;
-                if (hp < 1) 
-                {
-                    
-                }
-                if (hp==0)
-                {
-                    SceneManager.LoadScene("SampleScene");
-                }
-            }
-       }
+        else walk = speed;
+
+        if (stamina < 10.0) stamina = stamina + 0.01;
     }
    
     void FixedUpdate()
     {
-        Debug.Log(hp);
         Run();
         Walk();
     }
